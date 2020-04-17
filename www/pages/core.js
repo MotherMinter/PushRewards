@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { SHA256 } from 'crypto-js'
 
-export const BACKEND_BASE_URL = 'http://localhost:3050'
+export const BACKEND_BASE_URL = 'https://zapp.money'
 
 export async function login (email, password) {
   return axios.post(`${BACKEND_BASE_URL}/api/login`, { email, password });
