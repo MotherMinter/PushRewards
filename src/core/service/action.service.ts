@@ -24,7 +24,7 @@ export class ActionService {
       action.user = fingerPrint.user;
       action.company = company;
       action.status = company.status;
-      action.client = company.project.client;
+      action.client = company?.project?.client;
 
       await this.actionRepository.save(action);
 

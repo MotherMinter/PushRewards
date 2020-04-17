@@ -1472,6 +1472,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, function (components) {
             const values = components.map(function (component) { return component.value })
             const fp = Fingerprint2.x64hash128(values.join(''), 31)
+            console.log(fp);
             //const host = 'https://zapp.money';
             const host = 'http://localhost:3050';
             window.motherMinter = {

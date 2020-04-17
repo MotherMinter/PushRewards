@@ -113,7 +113,7 @@ export class CoreController {
   async fpAction(@Req() request: Request, @Body() body: FpActionDto) {
     if (body && body.fp) {
       const fingerPrint = await this.fingerprintService.get(body.fp, false);
-      if (fingerPrint) {
+      if (!fingerPrint) {
         return {
           status: 'error',
           msg: 'fail user',
