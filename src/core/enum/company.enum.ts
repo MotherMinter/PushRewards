@@ -1,0 +1,10 @@
+export enum CompanyStatus {
+  ACTIVE = 100,
+  FEEDBACK = 101,
+  ACTION = 102,
+  COMPLEX = 200,
+  COMPLEX_FEEDBACK = 201,
+  COMPLEX_ACTION = 202,
+  CANCEL = 300,
+  END = 301,
+}
