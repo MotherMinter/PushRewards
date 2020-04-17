@@ -34,6 +34,7 @@ export class User {
   accounts: Account[];
 
   @OneToOne(type => Wallet, wallet => wallet.user)
+  @JoinColumn()
   wallet: Wallet;
 
   @OneToMany(type => Action, action => action.user, { eager: true })

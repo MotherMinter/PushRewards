@@ -91,7 +91,7 @@ export class CoreController {
   @ApiOperation({ description: 'Try check/add fingerprint'})
   async fp(@Req() request: Request, @Body() body: FpDto) {
     if (body && body.fp) {
-      const fingerPrint = this.fingerprintService.get(body.fp);
+      const fingerPrint = await this.fingerprintService.get(body.fp);
 
       // get information from request and store it to fingerPrint
       // store information
@@ -126,7 +126,7 @@ export class CoreController {
       global.console.info(fingerPrint, request.ip, request.header('referer'));
 
       // todo: add find project by referer url
-
+      /*
       // try find company bu uid
       const company = await this.companyService.getByUid(body.uid); // todo: change getByProjectAndUid
       if (!company) {
@@ -151,7 +151,8 @@ export class CoreController {
             msg: 'access denied',
           };
         }
-      }
+      }*/
+      const company = await this.companyService.findFirst();
 
       // add action
       const action = await this.actionService.add(company, fingerPrint, body.params);

@@ -54,4 +54,8 @@ export class CompanyService {
     }
     return null;
   }
+
+  async findFirst(): Promise<Company> {
+    return await this.companyRepository.findOne(1);
+  }
 }
