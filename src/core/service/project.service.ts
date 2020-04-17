@@ -26,6 +26,7 @@ export class ProjectService {
       project.client = client;
       project.warehouseWallet = await this.warehouseService.create();
       project.uid = uuidv4();
+      project.status = 100;
 
       await this.projectRepository.save(project);
 

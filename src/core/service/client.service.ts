@@ -43,7 +43,7 @@ export class ClientService {
       return await this.clientRepository.findOneOrFail(
         {
           email,
-        }, { relations: ['companies'] });
+        });
     } catch (error) {
       // not found
       return null;
@@ -57,7 +57,7 @@ export class ClientService {
         {
           email,
           password: passwordHash,
-        }, { relations: ['companies'] });
+        });
     } catch (error) {
       // global.console.error('error get client', email);
       throw new HttpException('Bad password', HttpStatus.UNAUTHORIZED);

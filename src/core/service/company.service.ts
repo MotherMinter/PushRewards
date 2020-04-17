@@ -6,6 +6,7 @@ import { Repository } from 'typeorm';
 import { AccountDto, ClientDto, CompanyDto, ProjectDto } from '../dto';
 import { UtilService } from './util.service';
 import { WarehouseService } from './warehouse.service';
+import {ActionStatus} from "../enum";
 
 const APIKEY_LENGTH = 32;
 
@@ -25,6 +26,7 @@ export class CompanyService {
       company.client = project.client;
       company.uid = uuidv4();
       company.warehouseWallet = await this.warehouseService.create();
+      company.status = ActionStatus.NEW;
 
       await this.companyRepository.save(company);
 

@@ -79,7 +79,7 @@ export class CoreController {
   @Post('login')
   @UseInterceptors(ClassSerializerInterceptor)
   @ApiOperation({ description: 'Try login account'})
-  async login(@Body() body: AccountDto): Promise<Client> {
+  async login(@Body() body: ClientDto): Promise<Client> {
     if (body && body.password && body.email) {
       return this.clientService.login(body.email, body.password);
     }

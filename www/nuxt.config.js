@@ -7,18 +7,17 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: '5 Second Gift | Spend Minter coins with ease',
+    title: '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   server: {
-    port: 30480,
+    port: 3051,
     host: 'localhost'
   },
   /*
@@ -29,9 +28,16 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/static/assets/css/reset.css',
-    '~/static/assets/css/style.css',
-    '~/static/assets/css/style_alt.css',
+    '~/static/app-assets/vendors/css/vendors.min.css',
+    '~/static/assets/css/bootstrap.css',
+    '~/static/app-assets/css/bootstrap-extended.css',
+    '~/static/app-assets/css/colors.css',
+    '~/static/app-assets/css/components.css',
+    '~/static/app-assets/css/themes/dark-layout.css',
+    '~/static/app-assets/css/themes/semi-dark-layout.css',
+    '~/static/app-assets/css/core/menu/menu-types/vertical-menu.css',
+    '~/static/app-assets/css/core/colors/palette-gradient.css',
+    '~/static/app-assets/css/pages/authentication.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -76,8 +82,8 @@ export default {
     }]
   ],
   bootstrapVue: {
-    bootstrapCSS: false, // here you can disable automatic bootstrapCSS in case you are loading it yourself using sass
-    bootstrapVueCSS: false, // CSS that is specific to bootstrapVue components can also be disabled. That way you won't load css for modules that you don't use
+    bootstrapCSS: true, // here you can disable automatic bootstrapCSS in case you are loading it yourself using sass
+    bootstrapVueCSS: true, // CSS that is specific to bootstrapVue components can also be disabled. That way you won't load css for modules that you don't use
     componentPlugins: [], // Here you can specify which components you want to load and use
     directivePlugins: [] // Here you can specify which directives you want to load and use. Look into official docs to get a list of what's available
   },
