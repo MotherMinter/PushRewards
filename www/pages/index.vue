@@ -725,6 +725,7 @@
           passwordHash: '',
         },
         errorMessage: '',
+        fp: '',
       }
     },
     computed: {
@@ -734,6 +735,12 @@
     },
     created () {
       this.state = 'login'
+
+      core.getFingerPrint()
+        .then((fp) => {
+          this.fp = fp
+
+        })
     },
     filters: {
     },
