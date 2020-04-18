@@ -5,8 +5,28 @@
     <title>Demo 1</title>
 </head>
 <body>
-1. Open dev console (F12)
-2. console.log(window.motherMinter)
+
+1. Your uniq id is: <span id="fp"></span></br>
+2. Click btn to receive reward <button id="get_reward">Get my reward</button>
+
 <script type="application/javascript" src="embed.js"></script>
+<script type="application/javascript">
+    function checkMyFp() {
+        if (window.motherMinter) {
+            document.getElementById('fp').textContent = window.motherMinter.id;
+            document.getElementById('get_reward').addEventListener('click', function() {
+                window.motherMinter.action('get_reward');
+                alert('you receive reward to you account: ' + window.motherMinter.id);
+            })
+        }
+        else {
+            window.check = setTimeout(checkMyFp, 100);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        window.check = setTimeout(checkMyFp, 100);
+    })
+</script>
 </body>
 </html>
